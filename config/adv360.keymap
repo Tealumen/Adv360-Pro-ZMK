@@ -30,7 +30,7 @@
       bindings = <
         &kp EQUAL &kp N1    &kp N2   &kp N3    &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7   &kp N8    &kp N9   &kp N0   &kp MINUS
         &kp TAB   &kp Q     &kp W    &kp E     &kp R      &kp T  &none                                                            &none &kp Y  &kp U    &kp I     &kp O    &kp P    &kp DEL
-        &kp ESC   &kp A     &kp S    &kp D     &kp F      &kp G  &none           &sk LCTRL &sk LALT &sk LGUI  &sk RCTRL           &none &kp H  &kp J    &kp K     &kp L    &kp SEMI &kp LGUI
+        &kp ESC   &kp A     &kp S    &kp D     &kp F      &kp G  &none           &sk LCTRL &sk LGUI &sk LALT  &sk RCTRL           &none &kp H  &kp J    &kp K     &kp L    &kp SEMI &sk LGUI
         &sk LSHFT &kp Z     &kp X    &kp C     &kp V      &kp B                            &kp HOME &kp UP                              &kp N  &kp M    &kp COMMA &kp DOT  &kp FSLH &sk RSHFT
         &mo 2     &kp GRAVE &kp RGUI &kp PG_UP &kp PG_DN                &kp BSPC &sl 1     &kp END  &kp DOWN  &kp ENTER &kp SPACE              &kp LEFT &kp RIGHT &kp LBKT &kp RBKT &sl 2
       >;
