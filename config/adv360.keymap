@@ -7,43 +7,20 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
-  behaviors {
-    #include "macros.dtsi"
-    #include "version.dtsi"
+    behaviors {
+      #include "macros.dtsi"
+      #include "version.dtsi"
 
-    hm: homerow_mods {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS";
-      #binding-cells = <2>;
-      tapping-term-ms = <200>;
-      quick_tap_ms = <175>;
-      flavor = "tap-preferred";
-      bindings = <&kp>, <&kp>;
+      hm: homerow_mods {
+          compatible = "zmk,behavior-hold-tap";
+          label = "HOMEROW_MODS";
+          #binding-cells = <2>;
+          tapping-term-ms = <200>;
+          quick_tap_ms = <175>;
+          flavor = "tap-preferred";
+          bindings = <&kp>, <&kp>;
+      };
     };
-
-    hml: home_row_mod_left {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      require-prior-idle-ms = <150>;
-      tapping-term-ms = <280>;
-      quick-tap-ms = <175>;
-      bindings = <&kp>, <&kp>;
-      hold-trigger-key-positions = < 14 15 16 17 18 19 28 29 30 31 32 33 46 47 48 49 50 51 60 61 62 63 64 65 >; // List of keys on the right side of the keyboard
-      hold-trigger-on-release;
-    };
-    hmr: home_row_mod_right {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      require-prior-idle-ms = <150>;
-      tapping-term-ms = <280>;
-      quick-tap-ms = <175>;
-      bindings = <&kp>, <&kp>;
-      hold-trigger-key-positions = < 0 1 2 3 4 5 20 21 22 23 24 25 34 35 36 37 38 39 52 53 54 55 56 57 >; // List of keys on the left side of the keyboard
-      hold-trigger-on-release;
-    };
-  };
 
   keymap {
     compatible = "zmk,keymap";
@@ -51,11 +28,11 @@
     default_layer {
       display-name = "Base";
       bindings = <
-        &kp EQUAL &kp N1      &kp N2      &kp N3       &kp N4       &kp N5 &tog 1                                                         &mo 3 &kp N6 &kp N7       &kp N8       &kp N9      &kp N0         &kp MINUS
-        &kp TAB   &kp Q       &kp W       &kp E        &kp R        &kp T  &none                                                          &none &kp Y  &kp U        &kp I        &kp O       &kp P          &kp DEL
-        &kp ESC   &hml LALT A &hml LGUI S &hml LSHFT D &hml LCTRL F &kp G  &none        &kp LCTRL &kp LALT   &kp LEFT &kp RIGHT           &none &kp H  &hmr RCTRL J &hmr RSHFT K &hmr LGUI L &hmr LALT SEMI &kp CAPS
-        &kp CAPS  &kp Z       &kp X       &kp C        &kp V        &kp B                         &kp UP     &kp HOME                           &kp N  &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp CAPS
-        &mo 2     &kp GRAVE   &kp RGUI    &kp PG_UP    &kp PG_DN                  &sl 1 &kp BSPC  &kp DOWN   &kp END  &kp ENTER &kp SPACE              &sk LGUI     &kp LALT     &kp LBKT    &kp RBKT       &sl 2
+        &kp EQUAL &kp N1    &kp N2   &kp N3    &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7   &kp N8    &kp N9   &kp N0   &kp MINUS
+        &kp TAB   &kp Q     &kp W    &kp E     &kp R      &kp T  &none                                                            &none &kp Y  &kp U    &kp I     &kp O    &kp P    &kp DEL
+        &kp ESC   &kp A     &kp S    &kp D     &kp F      &kp G  &none          &kp LCTRL &kp LALT   &kp LEFT &kp RIGHT           &none &kp H  &kp J    &kp K     &kp L    &kp SEMI &kp RCTRL
+        &kp LSHFT &kp Z     &kp X    &kp C     &kp V      &kp B                           &kp UP     &kp HOME                           &kp N  &kp M    &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+        &mo 2     &kp GRAVE &kp RGUI &kp PG_UP &kp PG_DN                  &mo 1 &kp BSPC  &kp DOWN   &kp END  &kp ENTER &kp SPACE              &sk LGUI &kp LALT  &kp LBKT &kp RBKT &sl 2
       >;
     };
     keypad {
