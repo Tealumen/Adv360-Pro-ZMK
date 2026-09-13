@@ -19,8 +19,25 @@
           quick_tap_ms = <175>;
           flavor = "tap-preferred";
           bindings = <&kp>, <&kp>;
-      };
+	  };
     };
+
+	macros {
+    	uc_emo1: uc_emo1 {
+            label = "UNICODE_EMO1";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <0>;
+            wait-ms = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp U>
+                , <&macro_release &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp N1 &kp F &kp N6 &kp N0 &kp N0 &kp SPC>
+                ;
+        };
+    };
+
 
   keymap {
     compatible = "zmk,keymap";
@@ -28,11 +45,11 @@
     default_layer {
       display-name = "Base";
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3    &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7   &kp N8    &kp N9   &kp N0   &kp MINUS
+        &kp EQUAL &kp N1    &kp N2   &kp N3    &kp N4     &kp N5 &none                                                            &mo 3 &kp N6 &kp N7   &kp N8    &kp N9   &kp N0   &kp MINUS
         &kp TAB   &kp Q     &kp W    &kp E     &kp R      &kp T  &none                                                            &none &kp Y  &kp U    &kp I     &kp O    &kp P    &kp DEL
-        &kp ESC   &kp A     &kp S    &kp D     &kp F      &kp G  &none          &kp LCTRL &kp LALT   &kp LEFT &kp RIGHT           &none &kp H  &kp J    &kp K     &kp L    &kp SEMI &kp RCTRL
+        &kp ESC   &kp A     &kp S    &kp D     &kp F      &kp G  &none          &sk LCTRL &sk LALT   &kp LEFT &kp RIGHT           &none &kp H  &kp J    &kp K     &kp L    &kp SEMI &sk RCTRL
         &sk LSHFT &kp Z     &kp X    &kp C     &kp V      &kp B                           &kp UP     &kp HOME                           &kp N  &kp M    &kp COMMA &kp DOT  &kp FSLH &sk RSHFT
-        &mo 2     &kp GRAVE &kp RGUI &kp PG_UP &kp PG_DN                  &mo 1 &kp BSPC  &kp DOWN   &kp END  &kp ENTER &kp SPACE              &sk LGUI &kp LALT  &kp LBKT &kp RBKT &sl 2
+        &sl 2     &kp GRAVE &kp RGUI &kp PG_UP &kp PG_DN                  &sl 1 &kp BSPC  &kp DOWN   &kp END  &kp ENTER &kp SPACE              &sk LGUI &sk LALT  &kp LBKT &kp RBKT &sl 2
       >;
     };
     keypad {
@@ -48,11 +65,11 @@
     fn {
       display-name = "Fn";
       bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                           &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-        &trans &trans &trans &trans &trans &trans  &none                                           &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans  &none        &trans &trans &trans &trans        &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans                      &trans &trans                     &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans              &trans &trans &trans  &trans  &trans
+        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                           &mo 3 &kp F7 &kp F8   &kp F9 &kp F10 &kp F11 &kp F12
+        &trans &trans &trans &trans &trans &trans  &none                                           &none &trans &trans   &trans &trans  &trans  &trans
+        &trans &trans &trans &trans &trans &trans  &none        &trans &trans &trans &trans        &none &trans &uc_emo1 &trans &trans  &trans  &trans
+        &trans &trans &trans &trans &trans &trans                      &trans &trans                     &trans &trans   &trans &trans  &trans  &trans
+        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans              &trans   &trans &trans  &trans  &trans
       >;
     };
     mod {
